@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "tidbits:block/compressed_cobblestone_1x"
+  }
+}
