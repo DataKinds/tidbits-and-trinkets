@@ -3,8 +3,6 @@
   "package": "info.pinkhouse.tidbits.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "RecipeManagerMixin",
-    "ModelLoaderMixin"
   ],
   "client": [
   ],

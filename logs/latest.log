@@ -1,0 +1,11 @@
+[16:22:21] [main/INFO]: [STDOUT]: Datagen output at C:\Users\tyler\packages\tidbits\src\generated\resources
+[16:22:21] [main/INFO]: [STDOUT]: Running datagen for tidbits:compressed_minecraft_cobblestone_1x with subIdent = minecraft:cobblestone, ogBlockIdent = minecraft:cobblestone, compressionLevel = 1
+[16:22:21] [main/INFO]: [STDOUT]: Running datagen for tidbits:compressed_minecraft_cobblestone_2x with subIdent = tidbits:compressed_minecraft_cobblestone_1x, ogBlockIdent = minecraft:cobblestone, compressionLevel = 2
+[16:22:21] [main/INFO]: [STDOUT]: Running datagen for tidbits:compressed_minecraft_cobblestone_3x with subIdent = tidbits:compressed_minecraft_cobblestone_2x, ogBlockIdent = minecraft:cobblestone, compressionLevel = 3
+[16:22:21] [main/INFO]: [STDOUT]: Running datagen for tidbits:compressed_minecraft_cobblestone_4x with subIdent = tidbits:compressed_minecraft_cobblestone_3x, ogBlockIdent = minecraft:cobblestone, compressionLevel = 4
+[16:22:21] [main/INFO]: [STDOUT]: Running datagen for tidbits:compressed_minecraft_cobblestone_5x with subIdent = tidbits:compressed_minecraft_cobblestone_4x, ogBlockIdent = minecraft:cobblestone, compressionLevel = 5
+[16:22:21] [main/INFO]: [STDOUT]: Running datagen for tidbits:compressed_minecraft_dirt_1x with subIdent = minecraft:dirt, ogBlockIdent = minecraft:dirt, compressionLevel = 1
+[16:22:21] [main/INFO]: [STDOUT]: Running datagen for tidbits:compressed_minecraft_dirt_2x with subIdent = tidbits:compressed_minecraft_dirt_1x, ogBlockIdent = minecraft:dirt, compressionLevel = 2
+[16:22:21] [main/INFO]: [STDOUT]: Running datagen for tidbits:compressed_minecraft_dirt_3x with subIdent = tidbits:compressed_minecraft_dirt_2x, ogBlockIdent = minecraft:dirt, compressionLevel = 3
+[16:22:21] [main/INFO]: [STDOUT]: Running datagen for tidbits:compressed_minecraft_dirt_4x with subIdent = tidbits:compressed_minecraft_dirt_3x, ogBlockIdent = minecraft:dirt, compressionLevel = 4
+[16:22:21] [main/INFO]: [STDOUT]: Running datagen for tidbits:compressed_minecraft_dirt_5x with subIdent = tidbits:compressed_minecraft_dirt_4x, ogBlockIdent = minecraft:dirt, compressionLevel = 5

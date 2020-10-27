@@ -1,8 +1,11 @@
 plugins {
     id 'fabric-loom'
+    id 'maven'
     id 'maven-publish'
-    id "org.jetbrains.kotlin.jvm"
+    id 'org.jetbrains.kotlin.jvm'
+    id 'idea'
 }
+import net.fabricmc.loom.task.RunClientTask
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
@@ -14,6 +17,37 @@ group = project.maven_group
 minecraft {
 }
 
+logger.lifecycle("WHAT THE FUCK IS " + sourceSets.main)
+sourceSets {
+    main {
+        resources {
+            srcDirs = [
+                "src/main/resources",
+                "src/generated/resources"
+            ]
+        }
+    }
+    datagen {
+        resources {
+            srcDirs = [
+                "src/generated/resources"
+            ]
+        }
+        compileClasspath += main.compileClasspath
+        runtimeClasspath += main.runtimeClasspath
+    }
+}
+
+task datagenGenerate(type: JavaExec, dependsOn: [downloadAssets, compileKotlin]) {
+    classpath sourceSets.datagen.runtimeClasspath
+    main = 'info.pinkhouse.tidbits.datagen.DatagenTask'
+}
+
+task printClasspath {
+    doLast {
+        sourceSets.datagen.runtimeClasspath.each { println it }
+    }
+}
 
 repositories {
     maven { url = "https://dl.bintray.com/shedaniel/cloth" }
@@ -34,9 +68,10 @@ dependencies {
     // PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
     // You may need to force-disable transitiveness on them.
 
-
     modApi "me.shedaniel.cloth.api:cloth-api:${project.cloth_api_version}"
     include "me.shedaniel.cloth.api:cloth-api:${project.cloth_api_version}"
+
+    datagenCompile sourceSets.main.output
 }
 
 processResources {
