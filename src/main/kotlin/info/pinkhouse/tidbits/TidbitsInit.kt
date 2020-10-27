@@ -3,15 +3,20 @@ package info.pinkhouse.tidbits
 import com.google.gson.JsonArray
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
+import me.shedaniel.cloth.api.datagen.v1.DataGeneratorHandler
+import me.shedaniel.cloth.api.datagen.v1.RecipeData
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.minecraft.block.Block
 import net.minecraft.block.Material
 import net.minecraft.client.render.model.json.JsonUnbakedModel
+import net.minecraft.data.server.recipe.ShapedRecipeJsonFactory
 import net.minecraft.item.BlockItem
 import net.minecraft.item.Item
 import net.minecraft.item.ItemGroup
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
+import java.nio.file.Paths
+
 // For support join https://discord.gg/v6v4pMv
 
 val COMPRESSED_BLOCKS: MutableList<CompressedBlock> = mutableListOf()
@@ -35,6 +40,8 @@ class CompressedBlock(val ogBlock: String, val compressionLevel: Int) {
 
     val ident: Identifier get() = Identifier("tidbits", "compressed_${ogBlockIdent.namespace}_${ogBlockIdent.path}_${compressionLevel}x")
     val subIdent: Identifier get() = if (compressionLevel <= 1) Identifier("tidbits", "compressed_${ogBlockIdent.namespace}_${ogBlockIdent.path}_${compressionLevel - 1}x") else ogBlockIdent
+
+    val dataHandler = DataGeneratorHandler.create(Paths.get("./src/resources"))
 
     val recipe: JsonObject get() {
         var out = JsonObject();
@@ -83,10 +90,35 @@ class CompressedBlock(val ogBlock: String, val compressionLevel: Int) {
     }
 
 
+    private fun registerRecipe() {
+        var recipes: RecipeData = this.dataHandler.recipes
+        ShapedRecipeJsonFactory.create(Registry.ITEM.get(ident))
+            .pattern("""
+                AAA
+                AAA
+                AAA
+            """.trimIndent())
+            .input('A',Registry.ITEM.get(subIdent))
+            .offerTo(recipes)
+    }
+
+    private fun registerModelState() {
+        var modelStates = dataHandler.modelStates;
+        modelStates.addSingletonCubeAll(Registry.BLOCK.get(ident))
+    }
+
+    private fun registerLootTable() {
+        var lootTable = dataHandler.lootTables
+        lootTable.registerBlockDropSelf(Registry.BLOCK.get(ident))
+    }
+
     fun register() {
         var block = Block(FabricBlockSettings.of(Material.METAL).hardness(5.0f))
         Registry.register(Registry.BLOCK, ident, block)
         Registry.register(Registry.ITEM, ident, BlockItem(block, Item.Settings().group(ItemGroup.MISC)))
+        registerRecipe()
+        registerModelState()
+        registerLootTable()
     }
 }
 

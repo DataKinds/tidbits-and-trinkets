@@ -16,6 +16,7 @@ minecraft {
 
 
 repositories {
+    maven { url = "https://dl.bintray.com/shedaniel/cloth" }
     maven { url = "http://maven.fabricmc.net/" }
 }
 
@@ -32,6 +33,10 @@ dependencies {
 
     // PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
     // You may need to force-disable transitiveness on them.
+
+
+    modApi "me.shedaniel.cloth.api:cloth-api:${project.cloth_api_version}"
+    include "me.shedaniel.cloth.api:cloth-api:${project.cloth_api_version}"
 }
 
 processResources {

@@ -30,13 +30,13 @@ public class ModelLoaderMixin {
         }
     }
 
-    @Redirect(method = "loadModel", at = @At(value = "INVOKE", target = "Lnet/minecraft/resource/ResourceManager;getAllResources(Lnet/minecraft/util/Identifier;)Ljava/util/List;"))
-    public List<Resource> loadModel_hackGetAllResources(ResourceManager resourceManager, Identifier id) throws IOException {
-        if (id.getNamespace() == "tidbits") {
-            List<Resource> out;
-            out.add(new ResourceImpl(resourcePack.getName(), id, this.open(id, resourcePack), inputStream))
-        } else {
-            return resourceManager.getAllResources(id);
-        }
-    }
+//    @Redirect(method = "loadModel", at = @At(value = "INVOKE", target = "Lnet/minecraft/resource/ResourceManager;getAllResources(Lnet/minecraft/util/Identifier;)Ljava/util/List;"))
+//    public List<Resource> loadModel_hackGetAllResources(ResourceManager resourceManager, Identifier id) throws IOException {
+//        if (id.getNamespace() == "tidbits") {
+//            List<Resource> out;
+//            out.add(new ResourceImpl(resourcePack.getName(), id, this.open(id, resourcePack), inputStream))
+//        } else {
+//            return resourceManager.getAllResources(id);
+//        }
+//    }
 }
