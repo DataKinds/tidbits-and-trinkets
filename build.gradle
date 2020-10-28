@@ -38,14 +38,14 @@ sourceSets {
     }
 }
 
-task datagenGenerate(type: JavaExec, dependsOn: [downloadAssets, compileKotlin]) {
+task datagenGenerate(type: RunClientTask, dependsOn: [downloadAssets, compileKotlin]) {
     classpath sourceSets.datagen.runtimeClasspath
     main = 'info.pinkhouse.tidbits.datagen.DatagenTask'
 }
 
-task printClasspath {
+task print {
     doLast {
-        sourceSets.datagen.runtimeClasspath.each { println it }
+        sourceSets.datagen.output.each { println it }
     }
 }
 
@@ -127,4 +127,5 @@ publishing {
     }
 }
 
+//compileDatagen.kotlinOptions.jvmTarget = "1.8"
 compileKotlin.kotlinOptions.jvmTarget = "1.8"

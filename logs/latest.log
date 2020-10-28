@@ -1,11 +1,13 @@
-[16:22:21] [main/INFO]: [STDOUT]: Datagen output at C:\Users\tyler\packages\tidbits\src\generated\resources
-[16:22:21] [main/INFO]: [STDOUT]: Running datagen for tidbits:compressed_minecraft_cobblestone_1x with subIdent = minecraft:cobblestone, ogBlockIdent = minecraft:cobblestone, compressionLevel = 1
-[16:22:21] [main/INFO]: [STDOUT]: Running datagen for tidbits:compressed_minecraft_cobblestone_2x with subIdent = tidbits:compressed_minecraft_cobblestone_1x, ogBlockIdent = minecraft:cobblestone, compressionLevel = 2
-[16:22:21] [main/INFO]: [STDOUT]: Running datagen for tidbits:compressed_minecraft_cobblestone_3x with subIdent = tidbits:compressed_minecraft_cobblestone_2x, ogBlockIdent = minecraft:cobblestone, compressionLevel = 3
-[16:22:21] [main/INFO]: [STDOUT]: Running datagen for tidbits:compressed_minecraft_cobblestone_4x with subIdent = tidbits:compressed_minecraft_cobblestone_3x, ogBlockIdent = minecraft:cobblestone, compressionLevel = 4
-[16:22:21] [main/INFO]: [STDOUT]: Running datagen for tidbits:compressed_minecraft_cobblestone_5x with subIdent = tidbits:compressed_minecraft_cobblestone_4x, ogBlockIdent = minecraft:cobblestone, compressionLevel = 5
-[16:22:21] [main/INFO]: [STDOUT]: Running datagen for tidbits:compressed_minecraft_dirt_1x with subIdent = minecraft:dirt, ogBlockIdent = minecraft:dirt, compressionLevel = 1
-[16:22:21] [main/INFO]: [STDOUT]: Running datagen for tidbits:compressed_minecraft_dirt_2x with subIdent = tidbits:compressed_minecraft_dirt_1x, ogBlockIdent = minecraft:dirt, compressionLevel = 2
-[16:22:21] [main/INFO]: [STDOUT]: Running datagen for tidbits:compressed_minecraft_dirt_3x with subIdent = tidbits:compressed_minecraft_dirt_2x, ogBlockIdent = minecraft:dirt, compressionLevel = 3
-[16:22:21] [main/INFO]: [STDOUT]: Running datagen for tidbits:compressed_minecraft_dirt_4x with subIdent = tidbits:compressed_minecraft_dirt_3x, ogBlockIdent = minecraft:dirt, compressionLevel = 4
-[16:22:21] [main/INFO]: [STDOUT]: Running datagen for tidbits:compressed_minecraft_dirt_5x with subIdent = tidbits:compressed_minecraft_dirt_4x, ogBlockIdent = minecraft:dirt, compressionLevel = 5
+[16:52:33] [main/INFO]: [STDOUT]: Datagen output at C:\Users\tyler\packages\tidbits\src\generated\resources
+[16:52:33] [main/INFO]: [STDOUT]: Running datagen for tidbits:compressed_minecraft_cobblestone_1x with subIdent = minecraft:cobblestone, ogBlockIdent = minecraft:cobblestone, compressionLevel = 1
+[16:52:33] [main/INFO]: [STDERR]: java.lang.IllegalAccessError: class me.shedaniel.cloth.api.datagen.v1.LootTableData tried to access private method 'net.minecraft.loot.LootTable$Builder net.minecraft.data.server.BlockLootTableGenerator.drops(net.minecraft.item.ItemConvertible)' (me.shedaniel.cloth.api.datagen.v1.LootTableData and net.minecraft.data.server.BlockLootTableGenerator are in unnamed module of loader 'app')
+[16:52:33] [main/INFO]: [STDERR]: 	at me.shedaniel.cloth.api.datagen.v1.LootTableData.dropsBlock(LootTableData.java:75)
+[16:52:33] [main/INFO]: [STDERR]: 	at me.shedaniel.cloth.api.datagen.v1.LootTableData.registerBlockDrop(LootTableData.java:67)
+[16:52:33] [main/INFO]: [STDERR]: 	at me.shedaniel.cloth.api.datagen.v1.LootTableData.registerBlockDropSelf(LootTableData.java:59)
+[16:52:33] [main/INFO]: [STDERR]: 	at info.pinkhouse.tidbits.CompressedBlock.registerLootTable(CompressedBlock.kt:131)
+[16:52:33] [main/INFO]: [STDERR]: 	at info.pinkhouse.tidbits.CompressedBlock.registerDatagen(CompressedBlock.kt:138)
+[16:52:33] [main/INFO]: [STDERR]: 	at info.pinkhouse.tidbits.datagen.DatagenTask$Companion$main$1.invoke(Datagen.kt:19)
+[16:52:33] [main/INFO]: [STDERR]: 	at info.pinkhouse.tidbits.datagen.DatagenTask$Companion$main$1.invoke(Datagen.kt:12)
+[16:52:33] [main/INFO]: [STDERR]: 	at info.pinkhouse.tidbits.CompressedBlock$Companion.forAll(CompressedBlock.kt:41)
+[16:52:33] [main/INFO]: [STDERR]: 	at info.pinkhouse.tidbits.datagen.DatagenTask$Companion.main(Datagen.kt:17)
+[16:52:33] [main/INFO]: [STDERR]: 	at info.pinkhouse.tidbits.datagen.DatagenTask.main(Datagen.kt)

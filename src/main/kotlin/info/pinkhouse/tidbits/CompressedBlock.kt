@@ -121,7 +121,6 @@ class CompressedBlock(val ogBlock: String, val compressionLevel: Int) {
                 ImpossibleCriterion.Conditions()
             )
             .offerTo(recipes)
-        IDataProvider.
     }
 
     private fun registerModelState(modelStates: ModelStateData) {
@@ -135,7 +134,8 @@ class CompressedBlock(val ogBlock: String, val compressionLevel: Int) {
     fun registerDatagen(handler: DataGeneratorHandler) {
 //        registerRecipe(handler.recipes)
         registerModelState(handler.modelStates)
-//        registerLootTable(handler.lootTables)
+//        println(handler.modelStates)
+        registerLootTable(handler.lootTables)
     }
 
     fun register() {
